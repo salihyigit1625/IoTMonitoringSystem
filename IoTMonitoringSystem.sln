@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A1881E5C-9909-4B08-87B0-C8AB9785641B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTMonitoringSystem.Domain", "src\IoTMonitoringSystem.Domain\IoTMonitoringSystem.Domain.csproj", "{E5F09210-61E3-460D-BDA8-79F5083E5D9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTMonitoringSystem.Application", "src\IoTMonitoringSystem.Application\IoTMonitoringSystem.Application.csproj", "{59E47A01-BC15-42C5-B66E-71BC475171AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTMonitoringSystem.Repository", "src\IoTMonitoringSystem.Repository\IoTMonitoringSystem.Repository.csproj", "{EBA92929-7757-4D16-82E4-090418F7414F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTMonitoringSystem.Api", "src\IoTMonitoringSystem.Api\IoTMonitoringSystem.Api.csproj", "{DD343A05-9EBE-498D-8EE0-5C3D807F6AE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTMonitoringSystem.WorkerService", "src\IoTMonitoringSystem.WorkerService\IoTMonitoringSystem.WorkerService.csproj", "{4B3A400E-238B-4A68-88CB-B76EB3F4A001}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5F09210-61E3-460D-BDA8-79F5083E5D9E} = {A1881E5C-9909-4B08-87B0-C8AB9785641B}
+		{59E47A01-BC15-42C5-B66E-71BC475171AC} = {A1881E5C-9909-4B08-87B0-C8AB9785641B}
+		{EBA92929-7757-4D16-82E4-090418F7414F} = {A1881E5C-9909-4B08-87B0-C8AB9785641B}
+		{DD343A05-9EBE-498D-8EE0-5C3D807F6AE3} = {A1881E5C-9909-4B08-87B0-C8AB9785641B}
+		{4B3A400E-238B-4A68-88CB-B76EB3F4A001} = {A1881E5C-9909-4B08-87B0-C8AB9785641B}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5F09210-61E3-460D-BDA8-79F5083E5D9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F09210-61E3-460D-BDA8-79F5083E5D9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F09210-61E3-460D-BDA8-79F5083E5D9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F09210-61E3-460D-BDA8-79F5083E5D9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59E47A01-BC15-42C5-B66E-71BC475171AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59E47A01-BC15-42C5-B66E-71BC475171AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59E47A01-BC15-42C5-B66E-71BC475171AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59E47A01-BC15-42C5-B66E-71BC475171AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBA92929-7757-4D16-82E4-090418F7414F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBA92929-7757-4D16-82E4-090418F7414F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBA92929-7757-4D16-82E4-090418F7414F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBA92929-7757-4D16-82E4-090418F7414F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD343A05-9EBE-498D-8EE0-5C3D807F6AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD343A05-9EBE-498D-8EE0-5C3D807F6AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD343A05-9EBE-498D-8EE0-5C3D807F6AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD343A05-9EBE-498D-8EE0-5C3D807F6AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B3A400E-238B-4A68-88CB-B76EB3F4A001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B3A400E-238B-4A68-88CB-B76EB3F4A001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B3A400E-238B-4A68-88CB-B76EB3F4A001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B3A400E-238B-4A68-88CB-B76EB3F4A001}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

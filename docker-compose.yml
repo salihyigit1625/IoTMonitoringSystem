@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: iot-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: iot_monitoring_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - iot-network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: iot-grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - ./grafana-provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana-provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - postgres
+    networks:
+      - iot-network
+
+  api:
+    build:
+      context: .
+      dockerfile: src/IoTMonitoringSystem.Api/Dockerfile
+    container_name: iot-api
+    restart: on-failure
+    ports:
+      - "5000:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=iot_monitoring_db;Username=postgres;Password=password123
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - postgres
+    networks:
+      - iot-network
+
+  worker:
+    build:
+      context: .
+      dockerfile: src/IoTMonitoringSystem.WorkerService/Dockerfile
+    container_name: iot-worker
+    restart: on-failure
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=iot_monitoring_db;Username=postgres;Password=password123
+      - SimulationSettings__IntervalSeconds=5
+    depends_on:
+      - postgres
+      - api
+    networks:
+      - iot-network
+
+volumes:
+  postgres_data:
+  grafana-data:
+
+networks:
+  iot-network:
+    driver: bridge
+    

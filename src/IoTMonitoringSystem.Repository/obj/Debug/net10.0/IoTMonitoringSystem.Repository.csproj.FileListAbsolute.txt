@@ -1,0 +1,17 @@
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/bin/Debug/net10.0/IoTMonitoringSystem.Repository.deps.json
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/bin/Debug/net10.0/IoTMonitoringSystem.Repository.runtimeconfig.json
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/bin/Debug/net10.0/IoTMonitoringSystem.Repository.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/bin/Debug/net10.0/IoTMonitoringSystem.Repository.pdb
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/bin/Debug/net10.0/IoTMonitoringSystem.Domain.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/bin/Debug/net10.0/IoTMonitoringSystem.Domain.pdb
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/obj/Debug/net10.0/IoTMonitoringSystem.Repository.csproj.AssemblyReference.cache
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/obj/Debug/net10.0/IoTMonitoringSystem.Repository.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/obj/Debug/net10.0/IoTMonitoringSystem.Repository.AssemblyInfoInputs.cache
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/obj/Debug/net10.0/IoTMonitoringSystem.Repository.AssemblyInfo.cs
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/obj/Debug/net10.0/IoTMonitoringSystem.Repository.csproj.CoreCompileInputs.cache
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/obj/Debug/net10.0/IoTMonit.9B687D97.Up2Date
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/obj/Debug/net10.0/IoTMonitoringSystem.Repository.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/obj/Debug/net10.0/refint/IoTMonitoringSystem.Repository.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/obj/Debug/net10.0/IoTMonitoringSystem.Repository.pdb
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/obj/Debug/net10.0/IoTMonitoringSystem.Repository.genruntimeconfig.cache
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Repository/obj/Debug/net10.0/ref/IoTMonitoringSystem.Repository.dll

@@ -1,0 +1,568 @@
+{
+  "id": null,
+  "uid": "iot-monitoring-dashboard",
+  "title": "IoT Sensor Monitoring Dashboard",
+  "tags": ["iot", "sensor-monitoring", "mse-csharp"],
+  "timezone": "browser",
+  "editable": true,
+  "graphTooltip": 1,
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "5s",
+  "time": { "from": "now-15m", "to": "now" },
+  "timepicker": {
+    "refresh_intervals": ["5s", "10s", "30s", "1m", "5m", "15m", "30m", "1h", "2h", "1d"]
+  },
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": { "type": "grafana", "uid": "-- Grafana --" },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "templating": {
+    "list": [
+      {
+        "name": "sensor",
+        "label": "Sensör",
+        "type": "query",
+        "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+        "definition": "SELECT DISTINCT \"Name\" FROM \"Sensors\" WHERE \"IsActive\" = true ORDER BY \"Name\";",
+        "query": "SELECT DISTINCT \"Name\" FROM \"Sensors\" WHERE \"IsActive\" = true ORDER BY \"Name\";",
+        "refresh": 1,
+        "sort": 1,
+        "multi": true,
+        "includeAll": true,
+        "allValue": null,
+        "current": { "text": "All", "value": "$__all" },
+        "hide": 0
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "Aktif Sensör Sayısı",
+      "gridPos": { "h": 4, "w": 6, "x": 0, "y": 0 },
+      "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS \"Aktif Sensör\" FROM \"Sensors\" WHERE \"IsActive\" = true;",
+          "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": { "mode": "thresholds" },
+          "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": 0 }] }
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "textMode": "auto"
+      }
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "Toplam Ölçüm Sayısı",
+      "gridPos": { "h": 4, "w": 6, "x": 6, "y": 0 },
+      "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS \"Toplam Ölçüm\" FROM \"SensorMeasurements\";",
+          "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": { "mode": "thresholds" },
+          "thresholds": { "mode": "absolute", "steps": [{ "color": "blue", "value": 0 }] }
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "textMode": "auto"
+      }
+    },
+    {
+      "id": 3,
+      "type": "stat",
+      "title": "Son Veri Zamanı",
+      "gridPos": { "h": 4, "w": 6, "x": 12, "y": 0 },
+      "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT MAX(\"MeasurementDate\") AS \"Son Ölçüm\" FROM \"SensorMeasurements\";",
+          "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "dateTimeAsIso",
+          "color": { "mode": "fixed", "fixedColor": "text" },
+          "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": 0 }] }
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "textMode": "auto"
+      }
+    },
+    {
+      "id": 4,
+      "type": "stat",
+      "title": "Eşik Aşan Ölçüm (Son 15dk)",
+      "description": "Sıcaklık>40, Nem>80 veya Basınç<950 olan ölçüm sayısı",
+      "gridPos": { "h": 4, "w": 6, "x": 18, "y": 0 },
+      "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS \"Uyarı\" FROM \"SensorMeasurements\" WHERE $__timeFilter(\"MeasurementDate\") AND (\"Temperature\" > 40 OR \"Humidity\" > 80 OR \"Pressure\" < 950);",
+          "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": 0 },
+              { "color": "red", "value": 1 }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "textMode": "auto"
+      }
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "Sıcaklık Değişimi (°C)",
+      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 4 },
+      "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+      "transformations": [
+        {
+          "id": "partitionByValues",
+          "options": { "fields": ["metric"] }
+        }
+      ],
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT m.\"MeasurementDate\" AS \"time\", m.\"Temperature\" AS \"value\", s.\"Name\" AS metric FROM \"SensorMeasurements\" m JOIN \"Sensors\" s ON m.\"SensorId\" = s.\"Id\" WHERE $__timeFilter(m.\"MeasurementDate\") AND s.\"Name\" IN (${sensor:sqlstring}) ORDER BY m.\"MeasurementDate\" ASC;",
+          "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "celsius",
+          "color": { "mode": "palette-classic" },
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 2,
+            "fillOpacity": 15,
+            "gradientMode": "opacity",
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": true,
+            "lineInterpolation": "smooth",
+            "axisPlacement": "auto",
+            "thresholdsStyle": { "mode": "line" },
+            "stacking": { "group": "A", "mode": "none" }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": 0 },
+              { "color": "orange", "value": 30 },
+              { "color": "red", "value": 40 }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom", "showLegend": true, "calcs": ["last", "min", "max"] },
+        "tooltip": { "mode": "multi", "sort": "none" }
+      }
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "Nem Değişimi (%)",
+      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 4 },
+      "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+      "transformations": [
+        {
+          "id": "partitionByValues",
+          "options": { "fields": ["metric"] }
+        }
+      ],
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT m.\"MeasurementDate\" AS \"time\", m.\"Humidity\" AS \"value\", s.\"Name\" AS metric FROM \"SensorMeasurements\" m JOIN \"Sensors\" s ON m.\"SensorId\" = s.\"Id\" WHERE $__timeFilter(m.\"MeasurementDate\") AND s.\"Name\" IN (${sensor:sqlstring}) ORDER BY m.\"MeasurementDate\" ASC;",
+          "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "color": { "mode": "palette-classic" },
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 2,
+            "fillOpacity": 15,
+            "gradientMode": "opacity",
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": true,
+            "lineInterpolation": "smooth",
+            "axisPlacement": "auto",
+            "thresholdsStyle": { "mode": "line" },
+            "stacking": { "group": "A", "mode": "none" }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": 0 },
+              { "color": "orange", "value": 60 },
+              { "color": "red", "value": 80 }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom", "showLegend": true, "calcs": ["last", "min", "max"] },
+        "tooltip": { "mode": "multi", "sort": "none" }
+      }
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Basınç Değişimi (hPa)",
+      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 4 },
+      "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+      "transformations": [
+        {
+          "id": "partitionByValues",
+          "options": { "fields": ["metric"] }
+        }
+      ],
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT m.\"MeasurementDate\" AS \"time\", m.\"Pressure\" AS \"value\", s.\"Name\" AS metric FROM \"SensorMeasurements\" m JOIN \"Sensors\" s ON m.\"SensorId\" = s.\"Id\" WHERE $__timeFilter(m.\"MeasurementDate\") AND s.\"Name\" IN (${sensor:sqlstring}) ORDER BY m.\"MeasurementDate\" ASC;",
+          "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "pressurehpa",
+          "color": { "mode": "palette-classic" },
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 2,
+            "fillOpacity": 15,
+            "gradientMode": "opacity",
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": true,
+            "lineInterpolation": "smooth",
+            "axisPlacement": "auto",
+            "thresholdsStyle": { "mode": "line" },
+            "stacking": { "group": "A", "mode": "none" }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "red", "value": 0 },
+              { "color": "orange", "value": 950 },
+              { "color": "green", "value": 980 }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom", "showLegend": true, "calcs": ["last", "min", "max"] },
+        "tooltip": { "mode": "multi", "sort": "none" }
+      }
+    },
+    {
+      "id": 8,
+      "type": "gauge",
+      "title": "Anlık Sıcaklık",
+      "gridPos": { "h": 7, "w": 8, "x": 0, "y": 12 },
+      "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT DISTINCT ON (s.\"Id\") s.\"Name\" AS metric, m.\"Temperature\" AS \"value\" FROM \"SensorMeasurements\" m JOIN \"Sensors\" s ON m.\"SensorId\" = s.\"Id\" WHERE s.\"IsActive\" = true AND s.\"Name\" IN (${sensor:sqlstring}) ORDER BY s.\"Id\", m.\"MeasurementDate\" DESC;",
+          "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "celsius",
+          "min": -10,
+          "max": 60,
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": 0 },
+              { "color": "orange", "value": 30 },
+              { "color": "red", "value": 40 }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": true }
+      }
+    },
+    {
+      "id": 9,
+      "type": "gauge",
+      "title": "Anlık Nem",
+      "gridPos": { "h": 7, "w": 8, "x": 8, "y": 12 },
+      "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT DISTINCT ON (s.\"Id\") s.\"Name\" AS metric, m.\"Humidity\" AS \"value\" FROM \"SensorMeasurements\" m JOIN \"Sensors\" s ON m.\"SensorId\" = s.\"Id\" WHERE s.\"IsActive\" = true AND s.\"Name\" IN (${sensor:sqlstring}) ORDER BY s.\"Id\", m.\"MeasurementDate\" DESC;",
+          "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": 0 },
+              { "color": "orange", "value": 60 },
+              { "color": "red", "value": 80 }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": true }
+      }
+    },
+    {
+      "id": 10,
+      "type": "gauge",
+      "title": "Anlık Basınç",
+      "gridPos": { "h": 7, "w": 8, "x": 16, "y": 12 },
+      "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT DISTINCT ON (s.\"Id\") s.\"Name\" AS metric, m.\"Pressure\" AS \"value\" FROM \"SensorMeasurements\" m JOIN \"Sensors\" s ON m.\"SensorId\" = s.\"Id\" WHERE s.\"IsActive\" = true AND s.\"Name\" IN (${sensor:sqlstring}) ORDER BY s.\"Id\", m.\"MeasurementDate\" DESC;",
+          "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "pressurehpa",
+          "min": 900,
+          "max": 1050,
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "red", "value": 900 },
+              { "color": "orange", "value": 950 },
+              { "color": "green", "value": 980 }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": true }
+      }
+    },
+    {
+      "id": 11,
+      "type": "table",
+      "title": "Sistem Sensör Listesi",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 19 },
+      "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT \"Id\", \"Name\", \"Type\", \"Location\", \"IsActive\", \"CreatedAt\" FROM \"Sensors\" ORDER BY \"Id\" ASC;",
+          "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": { "align": "auto", "cellOptions": { "type": "auto" }, "filterable": true, "inspect": false },
+          "color": { "mode": "thresholds" },
+          "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": 0 }] }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "IsActive" },
+            "properties": [
+              { "id": "custom.cellOptions", "value": { "type": "color-background", "mode": "basic" } },
+              {
+                "id": "mappings",
+                "value": [
+                  { "type": "value", "options": { "true": { "text": "Aktif", "color": "green" } } },
+                  { "type": "value", "options": { "false": { "text": "Pasif", "color": "red" } } }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "options": { "cellHeight": "sm", "showHeader": true, "sortBy": [] }
+    },
+    {
+      "id": 12,
+      "type": "table",
+      "title": "Sensör Bazlı Son Ölçümler",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 19 },
+      "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT DISTINCT ON (s.\"Id\") s.\"Name\" AS \"Sensör\", m.\"Temperature\" AS \"Sıcaklık (°C)\", m.\"Humidity\" AS \"Nem (%)\", m.\"Pressure\" AS \"Basınç (hPa)\", m.\"MeasurementDate\" AS \"Zaman\" FROM \"SensorMeasurements\" m JOIN \"Sensors\" s ON m.\"SensorId\" = s.\"Id\" WHERE s.\"IsActive\" = true ORDER BY s.\"Id\", m.\"MeasurementDate\" DESC;",
+          "datasource": { "type": "postgres", "uid": "dfvg3buiwt3pcb" }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": { "align": "auto", "cellOptions": { "type": "auto" }, "filterable": true, "inspect": false },
+          "color": { "mode": "thresholds" },
+          "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": 0 }] }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "Sıcaklık (°C)" },
+            "properties": [
+              { "id": "custom.cellOptions", "value": { "type": "color-background", "mode": "gradient" } },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    { "color": "green", "value": 0 },
+                    { "color": "orange", "value": 30 },
+                    { "color": "red", "value": 40 }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Nem (%)" },
+            "properties": [
+              { "id": "custom.cellOptions", "value": { "type": "color-background", "mode": "gradient" } },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    { "color": "green", "value": 0 },
+                    { "color": "orange", "value": 60 },
+                    { "color": "red", "value": 80 }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Basınç (hPa)" },
+            "properties": [
+              { "id": "custom.cellOptions", "value": { "type": "color-background", "mode": "gradient" } },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    { "color": "red", "value": 0 },
+                    { "color": "orange", "value": 950 },
+                    { "color": "green", "value": 980 }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "options": { "cellHeight": "sm", "showHeader": true, "sortBy": [] }
+    }
+  ]
+}

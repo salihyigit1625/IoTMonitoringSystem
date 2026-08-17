@@ -1,0 +1,11 @@
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Domain/bin/Debug/net10.0/IoTMonitoringSystem.Domain.deps.json
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Domain/bin/Debug/net10.0/IoTMonitoringSystem.Domain.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Domain/bin/Debug/net10.0/IoTMonitoringSystem.Domain.pdb
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Domain/obj/Debug/net10.0/IoTMonitoringSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Domain/obj/Debug/net10.0/IoTMonitoringSystem.Domain.AssemblyInfoInputs.cache
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Domain/obj/Debug/net10.0/IoTMonitoringSystem.Domain.AssemblyInfo.cs
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Domain/obj/Debug/net10.0/IoTMonitoringSystem.Domain.csproj.CoreCompileInputs.cache
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Domain/obj/Debug/net10.0/IoTMonitoringSystem.Domain.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Domain/obj/Debug/net10.0/refint/IoTMonitoringSystem.Domain.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Domain/obj/Debug/net10.0/IoTMonitoringSystem.Domain.pdb
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Domain/obj/Debug/net10.0/ref/IoTMonitoringSystem.Domain.dll

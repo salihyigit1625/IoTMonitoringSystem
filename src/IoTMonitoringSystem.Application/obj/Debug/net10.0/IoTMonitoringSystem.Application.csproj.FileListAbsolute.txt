@@ -1,0 +1,17 @@
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/bin/Debug/net10.0/IoTMonitoringSystem.Application.deps.json
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/bin/Debug/net10.0/IoTMonitoringSystem.Application.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/bin/Debug/net10.0/IoTMonitoringSystem.Application.pdb
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/bin/Debug/net10.0/IoTMonitoringSystem.Domain.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/bin/Debug/net10.0/IoTMonitoringSystem.Domain.pdb
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/obj/Debug/net10.0/IoTMonitoringSystem.Application.csproj.AssemblyReference.cache
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/obj/Debug/net10.0/IoTMonitoringSystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/obj/Debug/net10.0/IoTMonitoringSystem.Application.AssemblyInfoInputs.cache
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/obj/Debug/net10.0/IoTMonitoringSystem.Application.AssemblyInfo.cs
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/obj/Debug/net10.0/IoTMonitoringSystem.Application.csproj.CoreCompileInputs.cache
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/obj/Debug/net10.0/IoTMonit.C2A05831.Up2Date
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/obj/Debug/net10.0/IoTMonitoringSystem.Application.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/obj/Debug/net10.0/refint/IoTMonitoringSystem.Application.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/obj/Debug/net10.0/IoTMonitoringSystem.Application.pdb
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/obj/Debug/net10.0/ref/IoTMonitoringSystem.Application.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/bin/Debug/net10.0/IoTMonitoringSystem.Repository.dll
+/Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Application/bin/Debug/net10.0/IoTMonitoringSystem.Repository.pdb

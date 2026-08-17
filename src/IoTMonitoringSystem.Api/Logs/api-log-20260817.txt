@@ -1,0 +1,88 @@
+2026-08-17 11:41:17.449 +03:00 [INF] IoT Monitoring API başlatılıyor...
+2026-08-17 11:41:17.629 +03:00 [INF] Veritabanı migration kontrolü yapılıyor...
+2026-08-17 11:41:17.858 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-08-17 11:41:17.904 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-08-17 11:41:17.920 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-08-17 11:41:17.925 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-08-17 11:41:17.926 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-08-17 11:41:17.927 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-08-17 11:41:17.990 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Sensors" AS s)
+2026-08-17 11:41:18.004 +03:00 [INF] Now listening on: http://localhost:5041
+2026-08-17 11:41:18.004 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-17 11:41:18.004 +03:00 [INF] Hosting environment: Development
+2026-08-17 11:41:18.004 +03:00 [INF] Content root path: /Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Api
+2026-08-17 11:41:19.343 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5041/ - null null
+2026-08-17 11:41:19.356 +03:00 [INF] HTTP GET / responded 404 in 1.3203 ms
+2026-08-17 11:41:19.358 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5041/ - 404 0 null 15.7053ms
+2026-08-17 11:41:19.359 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5041/, Response status code: 404
+2026-08-17 11:41:23.246 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5041/ - null null
+2026-08-17 11:41:23.249 +03:00 [INF] HTTP GET / responded 404 in 0.1662 ms
+2026-08-17 11:41:23.250 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5041/ - 404 0 null 3.7972ms
+2026-08-17 11:41:23.250 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5041/, Response status code: 404
+2026-08-17 11:41:52.255 +03:00 [INF] Application is shutting down...
+2026-08-17 11:43:13.813 +03:00 [INF] IoT Monitoring API başlatılıyor...
+2026-08-17 11:43:13.995 +03:00 [INF] Veritabanı migration kontrolü yapılıyor...
+2026-08-17 11:43:14.219 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-08-17 11:43:14.264 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-08-17 11:43:14.282 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-08-17 11:43:14.286 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-08-17 11:43:14.287 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-08-17 11:43:14.288 +03:00 [INF] No migrations were applied. The database is already up to date.
+2026-08-17 11:43:14.350 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Sensors" AS s)
+2026-08-17 11:43:14.365 +03:00 [INF] Now listening on: http://localhost:5041
+2026-08-17 11:43:14.365 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-17 11:43:14.365 +03:00 [INF] Hosting environment: Development
+2026-08-17 11:43:14.365 +03:00 [INF] Content root path: /Users/yigit/RiderProjects/IoTMonitoringSystem/src/IoTMonitoringSystem.Api
+2026-08-17 11:43:15.797 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5041/ - null null
+2026-08-17 11:43:15.811 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5041/ - 301 0 null 14.8702ms
+2026-08-17 11:43:15.814 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5041/index.html - null null
+2026-08-17 11:43:15.830 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5041/index.html - 200 null text/html;charset=utf-8 16.186ms
+2026-08-17 11:43:16.115 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5041/swagger-ui.css - null null
+2026-08-17 11:43:16.121 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5041/index.css - null null
+2026-08-17 11:43:16.121 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5041/swagger-ui-bundle.js - null null
+2026-08-17 11:43:16.121 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5041/swagger-ui.css - 200 26499 text/css 5.8232ms
+2026-08-17 11:43:16.121 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5041/index.css - 200 152 text/css 0.4887ms
+2026-08-17 11:43:16.121 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5041/index.js - null null
+2026-08-17 11:43:16.121 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5041/swagger-ui-standalone-preset.js - null null
+2026-08-17 11:43:16.122 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5041/index.js - 200 null application/javascript;charset=utf-8 0.4406ms
+2026-08-17 11:43:16.123 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5041/swagger-ui-standalone-preset.js - 200 77731 text/javascript 1.9039ms
+2026-08-17 11:43:16.129 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5041/swagger-ui-bundle.js - 200 421507 text/javascript 7.5472ms
+2026-08-17 11:43:16.217 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5041/favicon-32x32.png - null null
+2026-08-17 11:43:16.217 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5041/favicon-16x16.png - null null
+2026-08-17 11:43:16.218 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5041/favicon-16x16.png - 200 665 image/png 1.0021ms
+2026-08-17 11:43:16.218 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5041/favicon-32x32.png - 200 628 image/png 1.1465ms
+2026-08-17 11:43:16.228 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5041/swagger/v1/swagger.json - null null
+2026-08-17 11:43:16.261 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 32.9698ms
+2026-08-17 11:43:33.059 +03:00 [INF] Application is shutting down...

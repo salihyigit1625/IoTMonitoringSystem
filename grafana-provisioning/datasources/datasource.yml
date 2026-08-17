@@ -1,0 +1,19 @@
+apiVersion: 1
+
+datasources:
+  - name: PostgreSQL-IoT
+    uid: dfvg3buiwt3pcb
+    type: postgres
+    access: proxy
+    url: postgres:5432
+    user: postgres
+    database: iot_monitoring_db
+    isDefault: true
+    editable: true
+    jsonData:
+      database: iot_monitoring_db
+      sslmode: disable
+      postgresVersion: 1600
+      timescaledb: false
+    secureJsonData:
+      password: "password123"
