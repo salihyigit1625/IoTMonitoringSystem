@@ -2,7 +2,7 @@
 
 .NET tabanlı, konteynerize edilmiş IoT telemetri toplama ve izleme platformu. Sensör verisi arka planda simüle edilir, PostgreSQL'e yazılır, Grafana üzerinden görselleştirilip eşik bazlı alarma bağlanır.
 
-![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)
+![.NET](https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)
 ![Grafana](https://img.shields.io/badge/Grafana-Unified%20Alerting-F46800?logo=grafana&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
