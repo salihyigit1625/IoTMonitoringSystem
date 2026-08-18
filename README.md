@@ -9,6 +9,18 @@
 
 ---
 
+## Kullanılan Teknolojiler
+
+| Katman | Teknoloji |
+|---|---|
+| Backend | .NET 10 Web API, Clean Architecture |
+| Background Processing | .NET Worker Service (`BackgroundService`) |
+| Veritabanı | PostgreSQL 16 |
+| ORM | Entity Framework Core (Code-First, Migrations) |
+| Logging | Serilog (structured logging) |
+| Monitoring | Grafana (Unified Alerting, Provisioning) |
+| Containerization | Docker, Docker Compose |
+
 ## Mimari
 
 ```
